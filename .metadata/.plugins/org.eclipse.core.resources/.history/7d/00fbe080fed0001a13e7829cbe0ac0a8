@@ -1,0 +1,7 @@
+package com.acmeweb.models;
+
+import java.util.List;
+
+public class Products {
+	List<String> products;
+}

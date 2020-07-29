@@ -1,0 +1,5 @@
+package com.acmeweb.models;
+
+public class Products {
+	List<Sting> products {get;set}
+}

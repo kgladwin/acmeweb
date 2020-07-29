@@ -1,0 +1,11 @@
+package com.acmeweb.dao;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class InitDAOImpl implements InitDAO {
+	
+	public List<String>	getProducts() {
+		
+	}
+}

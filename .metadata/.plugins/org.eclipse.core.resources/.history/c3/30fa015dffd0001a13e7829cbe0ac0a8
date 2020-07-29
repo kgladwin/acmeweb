@@ -1,0 +1,34 @@
+package com.acmeweb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.acmeweb.models.ProductList;
+import com.acmeweb.models.Products;
+import com.acmeweb.services.InitService;
+
+@RestController
+public class InitController {
+	
+	@Autowired
+	private InitService initService;
+
+	@CrossOrigin
+	@GetMapping("/")
+	public ProductList initialize() {
+
+		ProductList productList = new ProductList();
+		
+		try {
+			productList.products  = initService.getProducts();
+		
+		} catch (Exception ex) {
+			System.out.println();
+		}
+		
+		return products;
+	}
+	
+}

@@ -1,0 +1,91 @@
+package com.acmeweb.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acmeweb.dao.AcmeDAO;
+
+@Service
+public class AcmeService {
+
+	@Autowired
+	private AcmeDAO initDAO;
+	
+	
+	public LOVResponse findDefaultLOV(LOVRequest request) throws Exception {
+
+		LOVResponse lovResponse = null;
+		String bu = null;
+		
+		try {
+			lovResponse = new LOVResponse();
+
+			lovResponse.setDefaultEnvironmentId("1"); // PROD
+			lovResponse.setDefaultIdTypeId("1"); // Employee/Contractor
+
+			if(request.getBusinessUnit() == null) {
+				bu = "USA"; // default USA
+			} else {
+				bu = request.getBusinessUnit();
+			}
+			
+			List<LOV> roles = findRoleMapping(bu);
+
+			if (request == null || request.getTitle() == null || "".equals(request.getTitle())) {
+				
+				for (LOV lov : roles) {
+					if ("default".equalsIgnoreCase(lov.getValue())) {
+						BusinessSubFunction businessSubFunction = dao
+								.findSubFunctionById(Integer.parseInt(lov.getKey()));
+						lovResponse.setDefaultBusinessFunctionId(businessSubFunction.getBusinessFunctionId());
+						lovResponse.setDefaultBusinessSubFunctionId(businessSubFunction.getBusinessSubFunctionId());
+					}
+				}
+				
+			} else {
+				
+				boolean match = false;
+				
+				String title = request.getTitle().toLowerCase();
+				title = title.trim();
+				
+				for (LOV lov : roles) {
+					String keywords = lov.getValue();
+					keywords = keywords.toLowerCase();
+					String[] keywordsArray = keywords.split(",");
+
+					for (int i = 0; i < keywordsArray.length; i++) {
+						if (!match && match(keywordsArray[i].trim(), title)) {
+							match = true;
+							BusinessSubFunction businessSubFunction = dao
+									.findSubFunctionById(Integer.parseInt(lov.getKey()));
+							lovResponse.setDefaultBusinessFunctionId(businessSubFunction.getBusinessFunctionId());
+							lovResponse.setDefaultBusinessSubFunctionId(businessSubFunction.getBusinessSubFunctionId());
+							
+						}
+					}
+
+				}
+				
+				if(!match) {
+					for (LOV lov : roles) {
+						if ("default".equalsIgnoreCase(lov.getValue())) {
+							BusinessSubFunction businessSubFunction = dao
+									.findSubFunctionById(Integer.parseInt(lov.getKey()));
+							lovResponse.setDefaultBusinessFunctionId(businessSubFunction.getBusinessFunctionId());
+							lovResponse.setDefaultBusinessSubFunctionId(businessSubFunction.getBusinessSubFunctionId());
+						}
+					}
+				}
+			}
+			
+		} catch (Exception ex) {
+			throw ex;
+		}
+
+		return lovResponse;
+	}
+	
+}

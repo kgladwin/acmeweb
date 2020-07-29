@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;com.bluehost&apos; to &apos;BluehostApp&apos;" description="Rename resource &apos;com.bluehost&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/com.bluehost" name="BluehostApp" stamp="1595956897385" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;BluehostApp&apos; to &apos;AcmeWebApp&apos;" description="Rename resource &apos;BluehostApp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/BluehostApp" name="AcmeWebApp" stamp="1595956979507" updateReferences="true"/>
+</session>

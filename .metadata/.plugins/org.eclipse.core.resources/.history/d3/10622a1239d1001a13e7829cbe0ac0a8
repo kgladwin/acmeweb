@@ -1,0 +1,16 @@
+package com.acmeweb.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.acmeweb.models.Products;
+
+@Component
+public class AcmeDAOImpl implements AcmeDAO {
+	
+	public void create(Products request) throws Exception {
+		
+	}
+}

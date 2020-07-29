@@ -1,0 +1,12 @@
+package com.acmeweb.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class AcmeDAOImpl implements AcmeDAO {
+	
+	
+}

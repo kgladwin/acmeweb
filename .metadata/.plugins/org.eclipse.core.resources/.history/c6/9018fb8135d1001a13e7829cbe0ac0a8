@@ -1,0 +1,54 @@
+package com.acmeweb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.acmeweb.models.Product;
+import com.acmeweb.models.Response;
+import com.acmeweb.services.AcmeService;
+
+@RestController
+public class AcmeController {
+	
+	@Autowired
+	private AcmeService acmeService;
+
+	@CrossOrigin
+	@PostMapping("/create")
+	ResponseEntity<Response> create(@RequestBody Products request) {
+
+		try {
+
+			ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		    String json = ow.writeValueAsString(request);
+		    
+			logger.info("Request from appian:" + json);
+			
+			if(request.getUser() == null) {
+				Response response = new Response();
+				response.setMessage("no data");
+				
+				return new ResponseEntity<Response>(response, HttpStatus.BAD_REQUEST);
+				
+			} else {
+				appianService.updateAppianStatus(request.getUser());
+			}
+			
+			Response response = new Response();
+			response.setStatus("success");
+			
+			return new ResponseEntity<Response>(response, HttpStatus.OK);
+			
+		} catch (Exception ex) {
+			logger.error("Error in appian controller:" + ex);
+			return new ResponseEntity<Response>(new Response("500", "Exception saving details to IIRT DB: " + ex), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	
+}

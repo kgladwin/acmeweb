@@ -1,0 +1,21 @@
+package com.acmeweb.dao;
+
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Component;
+
+import com.acmeweb.models.Products;
+
+@Component
+public class AcmeDAOImpl implements AcmeDAO {
+	
+	private 
+	
+	public void create(Products request) throws Exception {
+		
+	}
+	
+	@Cacheable("listOfProducts")
+	public List<LOV> findRequestType() throws Exception {
+		return dao.findRequestType();
+	}
+}

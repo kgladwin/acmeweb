@@ -1,0 +1,7 @@
+package com.acmeweb.dao;
+
+import java.util.List;
+
+public interface InitDAO {
+	public List<String>	getProducts();
+}

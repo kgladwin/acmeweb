@@ -1,0 +1,391 @@
+package com.acmeweb.models;
+
+package com.lexisnexis.iirt.models;
+
+import java.util.Collections;
+import java.util.List;
+
+public class Response {
+	
+	String employeeId;
+	String legalId;
+	String employeeEmail;
+	String employeeFirstName;
+	String employeeLastName;
+	String employeeTitle;
+	String employeeLocation;
+	String employeeCountry;
+	String employeeBusinessUnit;
+	
+	String managerEmail;
+	String managerFirstName;
+	String managerLastName;
+	String managerTitle;
+	String managerLocation;
+	String managerEmployeeId;
+	String managerLegalId;
+	
+	String secondManagerEmail;
+	String secondManagerFirstName;
+	String secondManagerLastName;
+	String secondManagerTitle;
+	String secondManagerLocation;
+	String secondManagerEmployeeId;
+	String secondManagerLegalId;
+	
+	String errorMessage;
+	String statusCode;
+	String status;
+	
+	String message;
+	
+	List<Notifications> notifications;
+	List<History> history;
+	
+	String jwt;
+	
+	boolean admin;
+	String adminType;
+		
+	String execEmployeeId;
+	String execLegalId;
+	String execEmail;
+	String execFirstName;
+	String execLastName;
+	String execTitle;
+	String execLocation;
+	boolean execOverride;
+	
+	public Response() {
+	}
+
+	public Response(String statusCode, String errorMessage) {
+		this.errorMessage = errorMessage;
+		this.statusCode = statusCode;
+	}
+	
+	public Response(String statusCode) {
+		this.statusCode = statusCode;
+	}
+	
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getLegalId() {
+		return legalId;
+	}
+
+	public void setLegalId(String legalId) {
+		this.legalId = legalId;
+	}
+
+	public String getEmployeeEmail() {
+		return employeeEmail;
+	}
+
+	public void setEmployeeEmail(String employeeEmail) {
+		this.employeeEmail = employeeEmail;
+	}
+
+	public String getEmployeeFirstName() {
+		return employeeFirstName;
+	}
+
+	public void setEmployeeFirstName(String employeeFirstName) {
+		this.employeeFirstName = employeeFirstName;
+	}
+
+	public String getEmployeeLastName() {
+		return employeeLastName;
+	}
+
+	public void setEmployeeLastName(String employeeLastName) {
+		this.employeeLastName = employeeLastName;
+	}
+
+	public String getEmployeeTitle() {
+		return employeeTitle;
+	}
+
+	public void setEmployeeTitle(String employeeTitle) {
+		this.employeeTitle = employeeTitle;
+	}
+
+	public String getEmployeeLocation() {
+		return employeeLocation;
+	}
+
+	public void setEmployeeLocation(String employeeLocation) {
+		this.employeeLocation = employeeLocation;
+	}
+
+	public String getManagerEmail() {
+		return managerEmail;
+	}
+
+	public void setManagerEmail(String managerEmail) {
+		this.managerEmail = managerEmail;
+	}
+
+	public String getManagerFirstName() {
+		return managerFirstName;
+	}
+
+	public void setManagerFirstName(String managerFirstName) {
+		this.managerFirstName = managerFirstName;
+	}
+
+	public String getManagerLastName() {
+		return managerLastName;
+	}
+
+	public void setManagerLastName(String managerLastName) {
+		this.managerLastName = managerLastName;
+	}
+
+	public String getManagerTitle() {
+		return managerTitle;
+	}
+
+	public void setManagerTitle(String managerTitle) {
+		this.managerTitle = managerTitle;
+	}
+
+	public String getManagerLocation() {
+		return managerLocation;
+	}
+
+	public void setManagerLocation(String managerLocation) {
+		this.managerLocation = managerLocation;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public String getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
+
+	public String getJwt() {
+		return jwt;
+	}
+
+	public void setJwt(String jwt) {
+		this.jwt = jwt;
+	}
+
+	public String getSecondManagerEmail() {
+		return secondManagerEmail;
+	}
+
+	public void setSecondManagerEmail(String secondManagerEmail) {
+		this.secondManagerEmail = secondManagerEmail;
+	}
+
+	public String getSecondManagerFirstName() {
+		return secondManagerFirstName;
+	}
+
+	public void setSecondManagerFirstName(String secondManagerFirstName) {
+		this.secondManagerFirstName = secondManagerFirstName;
+	}
+
+	public String getSecondManagerLastName() {
+		return secondManagerLastName;
+	}
+
+	public void setSecondManagerLastName(String secondManagerLastName) {
+		this.secondManagerLastName = secondManagerLastName;
+	}
+
+	public String getSecondManagerTitle() {
+		return secondManagerTitle;
+	}
+
+	public void setSecondManagerTitle(String secondManagerTitle) {
+		this.secondManagerTitle = secondManagerTitle;
+	}
+
+	public String getSecondManagerLocation() {
+		return secondManagerLocation;
+	}
+
+	public void setSecondManagerLocation(String secondManagerLocation) {
+		this.secondManagerLocation = secondManagerLocation;
+	}
+
+	public String getSecondManagerEmployeeId() {
+		return secondManagerEmployeeId;
+	}
+
+	public void setSecondManagerEmployeeId(String secondManagerEmployeeId) {
+		this.secondManagerEmployeeId = secondManagerEmployeeId;
+	}
+
+	public String getSecondManagerLegalId() {
+		return secondManagerLegalId;
+	}
+
+	public void setSecondManagerLegalId(String secondManagerLegalId) {
+		this.secondManagerLegalId = secondManagerLegalId;
+	}
+
+	public String getManagerEmployeeId() {
+		return managerEmployeeId;
+	}
+
+	public void setManagerEmployeeId(String managerEmployeeId) {
+		this.managerEmployeeId = managerEmployeeId;
+	}
+
+	public String getManagerLegalId() {
+		return managerLegalId;
+	}
+
+	public void setManagerLegalId(String managerLegalId) {
+		this.managerLegalId = managerLegalId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<Notifications> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<Notifications> notifications) {
+		this.notifications = notifications;
+	}
+
+	public List<History> getHistory() {
+		return history;
+	}
+
+	public void setHistory(List<History> history) {
+		this.history = history;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public String getAdminType() {
+		return adminType;
+	}
+
+	public void setAdminType(String adminType) {
+		this.adminType = adminType;
+	}
+
+	public String getExecEmployeeId() {
+		return execEmployeeId;
+	}
+
+	public void setExecEmployeeId(String execEmployeeId) {
+		this.execEmployeeId = execEmployeeId;
+	}
+
+	public String getExecLegalId() {
+		return execLegalId;
+	}
+
+	public void setExecLegalId(String execLegalId) {
+		this.execLegalId = execLegalId;
+	}
+
+	public String getExecEmail() {
+		return execEmail;
+	}
+
+	public void setExecEmail(String execEmail) {
+		this.execEmail = execEmail;
+	}
+
+	public String getExecFirstName() {
+		return execFirstName;
+	}
+
+	public void setExecFirstName(String execFirstName) {
+		this.execFirstName = execFirstName;
+	}
+
+	public String getExecLastName() {
+		return execLastName;
+	}
+
+	public void setExecLastName(String execLastName) {
+		this.execLastName = execLastName;
+	}
+
+	public String getExecTitle() {
+		return execTitle;
+	}
+
+	public void setExecTitle(String execTitle) {
+		this.execTitle = execTitle;
+	}
+
+	public String getExecLocation() {
+		return execLocation;
+	}
+
+	public void setExecLocation(String execLocation) {
+		this.execLocation = execLocation;
+	}
+
+	public boolean isExecOverride() {
+		return execOverride;
+	}
+
+	public void setExecOverride(boolean execOverride) {
+		this.execOverride = execOverride;
+	}
+
+	public String getEmployeeCountry() {
+		return employeeCountry;
+	}
+
+	public void setEmployeeCountry(String employeeCountry) {
+		this.employeeCountry = employeeCountry;
+	}
+
+	public String getEmployeeBusinessUnit() {
+		return employeeBusinessUnit;
+	}
+
+	public void setEmployeeBusinessUnit(String employeeBusinessUnit) {
+		this.employeeBusinessUnit = employeeBusinessUnit;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+		
+}

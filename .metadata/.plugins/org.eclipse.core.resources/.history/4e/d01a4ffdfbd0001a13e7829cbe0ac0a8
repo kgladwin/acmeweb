@@ -1,0 +1,6 @@
+package com.acmeweb.dao;
+
+@Component
+public class InitDAOImpl implements InitDAO {
+
+}

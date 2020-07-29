@@ -1,0 +1,19 @@
+package com.acmeweb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.acmeweb.models.Product;
+import com.acmeweb.services.AcmeService;
+
+@RestController
+public class AcmeController {
+	
+	@Autowired
+	private AcmeService initService;
+
+	
+	
+}

@@ -1,0 +1,6 @@
+package com.acmeweb.services;
+
+@Service
+public class InitService {
+	
+}

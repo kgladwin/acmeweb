@@ -1,0 +1,57 @@
+package com.acmeweb.services;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acmeweb.dao.AcmeDAO;
+import com.acmeweb.models.Product;
+import com.acmeweb.models.Products;
+
+@Service
+public class AcmeService {
+
+	@Autowired
+	private AcmeDAO acmeDAO;
+
+	public void create(Product request) throws Exception {
+
+		try {
+
+			acmeDAO.create(request);
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+
+	}
+
+	public List<Product> getList() throws Exception {
+
+		try {
+			
+			List<Product> products = acmeDAO.getList();
+			
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			Collections.sort(products, (s1, s2) -> LocalDateTime.parse(s1, formatter).
+			            compareTo(LocalDateTime.parse(s2, formatter)));
+			
+			return 
+			
+		} catch (Exception ex) {
+			throw ex;
+		}
+
+		
+	}
+
+}

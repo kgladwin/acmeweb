@@ -1,0 +1,30 @@
+package com.acmeweb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class InitController {
+	
+	@Autowired
+	private LOVService lovService;
+
+	@CrossOrigin
+	@GetMapping("/")
+	public LOVResponse lov() {
+
+		LOVResponse response = null;
+
+		try {
+			response = lovService.findAllLOVs();
+			response.setStatusCode("200");
+			return response;
+
+		} catch (Exception ex) {
+			return new LOVResponse("500", "Exception getting lov details: " + ex);
+		}
+	}
+	
+}

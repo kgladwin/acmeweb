@@ -1,0 +1,19 @@
+package com.acmeweb.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acmeweb.dao.AcmeDAO;
+
+@Service
+public class AcmeService {
+
+	@Autowired
+	private AcmeDAO initDAO;
+	
+	public List<String>	getProducts() {
+		return initDAO.getProducts();
+	}
+}
