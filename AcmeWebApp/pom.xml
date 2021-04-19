@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring.boot.starter.parent>2.0.0.RELEASE</spring.boot.starter.parent>
-		<vaadin.version>8.3.1</vaadin.version>
+		<vaadin.version>8.12.3</vaadin.version>
 	</properties>
 
 	<dependencies>
